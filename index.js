@@ -1,12 +1,15 @@
 import express from "express";
-
+import authRouter from "./auth.js"
 import { connectToDatabase } from "./db.js";
+
 const app = express();
+const PORT = 3000;
+
 let db = await connectToDatabase();
 
 app.use(express.json());
 
-const PORT = 3000;
+app.use("/auth", authRouter) // trebalo bi kad si tunderu na local host3000/auth/login delat za login a na /singup za singup ako nisan nesto sjeba 
 
 app.get("/", (req, res) => {
   res.send("KuPro");
