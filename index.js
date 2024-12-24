@@ -15,7 +15,7 @@ app.get("/", (req, res) => {
   res.send("KuPro");
 });
 
-app.get("/kate", async (req, res) => {
+app.get("/kategorije", async (req, res) => {
   let kategorije_collection = db.collection("kategorije");
   let allKategorije = await kategorije_collection.find().toArray();
   res.status(200).json(allKategorije);
