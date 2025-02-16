@@ -1,5 +1,6 @@
 import express from "express";
 import authRouter from "./auth.js"
+
 import { connectToDatabase } from "./db.js";
 
 const app = express();
@@ -14,6 +15,7 @@ app.use("/auth", authRouter) // trebalo bi kad si tunderu na local host3000/auth
 app.get("/", (req, res) => {
   res.send("KuPro");
 });
+
 
 app.get("/kategorije", async (req, res) => {
   let kategorije_collection = db.collection("kategorije");
